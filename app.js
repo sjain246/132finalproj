@@ -1,8 +1,16 @@
 "use strict";
 
 const express = require("express");
+const multer = require("multer");
 const fs = require("fs/promises");
 const app = express();
+
+// for application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true })); // built-in middleware
+// for application/json
+app.use(express.json()); // built-in middleware
+// for multipart/form-data (required with FormData)
+app.use(multer().none()); // requires the "multer" module
 
 const SERVER_ERR_CODE = 500;
 const SERVER_ERROR = "An error occured on the server. Try again later!";
@@ -96,6 +104,47 @@ app.get("/promos", async (req, res, next) => {
         let promos = await fs.readFile("product_info/promos.json");
         let promosJson = JSON.parse(promos);
         res.json(promosJson);
+    } catch (err) {
+        res.status(SERVER_ERR_CODE);
+        err.message = SERVER_ERROR;
+        next(err);
+    }
+});
+
+app.post("/info", async (req, res, next) => {
+    try {
+        console.log(req.body);
+        res.type("text");
+        let name = req.body.name;
+        let email = req.body.email;
+        let feedback = req.body.feedback;
+        let phone = req.body.phone;
+        let data = {
+            "name": name,
+            "email": email,
+            "feedback": feedback,
+            "phone": phone
+        };
+        let jsonFile = "product_info/cust_serv.json";
+        try {
+            let contents = await fs.readFile(jsonFile, "utf8");
+            contents = JSON.parse(contents);
+            contents.form_submissions.push(data);
+            try {
+                await fs.writeFile(jsonFile, JSON.stringify(contents, null, 2), "utf8");
+                res.send(`Request to add ${name}/'s feedback successfully received!`);
+            } catch (err) {
+                res.status(SERVER_ERR_CODE);
+                err.message = SERVER_ERROR;
+                next(err);
+            }
+        } catch (err) {
+            if (err.code !== "ENOENT") { // file-not-found error
+            res.status(SERVER_ERR_CODE);
+            err.message = SERVER_ERROR;
+            next(err);
+            }
+        }
     } catch (err) {
         res.status(SERVER_ERR_CODE);
         err.message = SERVER_ERROR;

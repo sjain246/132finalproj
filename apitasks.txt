@@ -1,5 +1,5 @@
 1. Add descriptions for all products in all_prods.json
-2. Implement POST request to accept customer service information with name, email, comments/suggestions and optional query param of phone
+2. Implement service information POST request to accept customer with name, email, comments/suggestions and optional query param of phone
 3. Add 5 total faqs to faqs.json and 5 promos to promos.json
 4. Implement postman documentation
 5. Document all functions and endpoints in app.js, as well as putting a header comment with our names and file description
