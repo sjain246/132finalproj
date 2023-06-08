@@ -140,7 +140,7 @@ app.post("/info", async (req, res, next) => {
             contents = JSON.parse(contents);
         }
         else {
-            contents = {};
+            contents = {"form_submissions":[]};
         }
         contents.form_submissions.push(data);
         try {
