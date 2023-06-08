@@ -42,20 +42,16 @@ app.get("/filter/:category", async (req, res, next) => {
             }
         });
         if (filteredProds.length == 0) {
-            throw new TypeError();
+            res.status(CLIENT_ERR_CODE);
+            next(Error(`Category ${req.params.category} not found.`));
         }
         else {
             res.json({"products": filteredProds});
         }
         
     } catch (err) {
-        if (err instanceof TypeError) {
-            res.status(CLIENT_ERR_CODE);
-            err.message = `Category ${req.params.category} not found.`;
-        } else {
-            res.status(SERVER_ERR_CODE);
-            err.message = SERVER_ERROR;
-        }
+        res.status(SERVER_ERR_CODE);
+        err.message = SERVER_ERROR;
         next(err);
     }
 });
@@ -73,16 +69,12 @@ app.get("/single/:id", async (req, res, next) => {
             }
         });
         if (notFoundProd){
-            throw new TypeError();
+            res.status(CLIENT_ERR_CODE);
+            next(Error(`Product ID ${req.params.id} not found.`));
         }
     } catch (err) {
-        if (err instanceof TypeError) {
-            res.status(CLIENT_ERR_CODE);
-            err.message = `Product ID ${req.params.id} not found.`;
-        } else {
-            res.status(SERVER_ERR_CODE);
-            err.message = SERVER_ERROR;
-        }
+        res.status(SERVER_ERR_CODE);
+        err.message = SERVER_ERROR;
         next(err);
     }
 });
@@ -111,14 +103,22 @@ app.get("/promos", async (req, res, next) => {
     }
 });
 
+// NOTE: Used the code from lecture 18 slide 41 as a template for a POST endpoint
 app.post("/info", async (req, res, next) => {
-    try {
-        console.log(req.body);
-        res.type("text");
-        let name = req.body.name;
-        let email = req.body.email;
-        let feedback = req.body.feedback;
-        let phone = req.body.phone;
+    res.type("text");
+    let name = req.body.name;
+    let email = req.body.email;
+    let feedback = req.body.feedback;
+    let phone = req.body.phone;
+
+    if (!(name && email && feedback)) {
+        res.status(CLIENT_ERR_CODE);
+        next(Error("Did not include all POST parameters of name, email, and feedback!"));
+    }
+    else {
+        if (!phone) {
+            phone = "";
+        }
         let data = {
             "name": name,
             "email": email,
@@ -126,29 +126,31 @@ app.post("/info", async (req, res, next) => {
             "phone": phone
         };
         let jsonFile = "product_info/cust_serv.json";
+        let contents = null;
         try {
-            let contents = await fs.readFile(jsonFile, "utf8");
-            contents = JSON.parse(contents);
-            contents.form_submissions.push(data);
-            try {
-                await fs.writeFile(jsonFile, JSON.stringify(contents, null, 2), "utf8");
-                res.send(`Request to add ${name}/'s feedback successfully received!`);
-            } catch (err) {
+            contents = await fs.readFile(jsonFile, "utf8");
+        } catch (err) {
+            if (err.code !== "ENOENT") { // file-not-found error
                 res.status(SERVER_ERR_CODE);
                 err.message = SERVER_ERROR;
                 next(err);
             }
+        }
+        if(contents) {
+            contents = JSON.parse(contents);
+        }
+        else {
+            contents = {};
+        }
+        contents.form_submissions.push(data);
+        try {
+            await fs.writeFile(jsonFile, JSON.stringify(contents, null, 2), "utf8");
+            res.send(`Request to add ${name}'s feedback successfully received!`);
         } catch (err) {
-            if (err.code !== "ENOENT") { // file-not-found error
             res.status(SERVER_ERR_CODE);
             err.message = SERVER_ERROR;
             next(err);
-            }
         }
-    } catch (err) {
-        res.status(SERVER_ERR_CODE);
-        err.message = SERVER_ERROR;
-        next(err);
     }
 });
 
