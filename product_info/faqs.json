@@ -1,8 +1,28 @@
 {
     "faqs": [
         {
-            "question": "What?",
-            "answer": "yes"
+            "question": "What is your return policy for subscription services?",
+            "answer": "Our return policy for subscription services depends on the specific service provider. Generally, once a subscription is activated or accessed, it becomes non-refundable. However, we recommend reviewing the terms and conditions of the service provider for their specific refund policies."
+        },
+        {
+            "question": "Can I purchase multiple subscriptions in one order?",
+            "answer": "Yes, you can purchase multiple subscriptions in a single order. Simply add the desired subscriptions to your cart before proceeding to checkout."
+        },
+        {
+            "question": "How do I redeem a subscription after purchasing it from your store?",
+            "answer": "After purchasing a subscription from our store, you will receive detailed instructions on how to redeem it. This typically involves following a link or entering a code on the service provider's website or app."
+        },
+        {
+            "question": "Do you offer customer support or assistance if I encounter issues with my purchased subscription?",
+            "answer": "We strive to offer excellent customer support for any issues you may encounter with your purchased subscription. Please reach out to our dedicated support team, and we will assist you in resolving any problems or inquiries."
+        },
+        {
+            "question": "Are the subscription prices on your store the same as the official service providers?",
+            "answer": "The subscription prices on our store may vary slightly from the official service providers. We strive to offer competitive prices while ensuring a seamless purchasing experience for our customers."
+        },
+        {
+            "question": "Are the subscriptions available for immediate activation, or do I have to wait for a specific start date?",
+            "answer": "The activation process for subscriptions varies by service provider. Some subscriptions may offer immediate activation, while others may have a specific start date or require activation within a certain timeframe. The details will be provided in the instructions you receive upon purchasing the subscription."
         }
     ]
 }

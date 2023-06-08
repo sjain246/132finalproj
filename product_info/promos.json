@@ -2,8 +2,28 @@
     "promos": [
         {
             "start date": "7/4/23",
-            "end date": "7/10/23",
+            "end date": "7/11/23",
             "sale description": "All Entertainment Products 10% off!"
+        },
+        {
+            "start date": "1/1/23",
+            "end date": "1/31/23",
+            "sale description": "23% Off Your First Subscription!"
+        },
+        {
+            "start date": "6/14/23",
+            "end date": "6/28/23",
+            "sale description": "All Transportation Products 5% off!"
+        },
+        {
+            "start date": "7/1/23",
+            "end date": "8/31/23",
+            "sale description": "Back To School Sale! All Education Products 10% off!"
+        },
+        {
+            "start date": "11/23/23",
+            "end date": "11/24/23",
+            "sale description": "Black Friday Sale! All Products 35% off!"
         }
     ]
 }
