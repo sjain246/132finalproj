@@ -9,7 +9,7 @@
             "description": "The Netflix Basic plan offers users an ad-free streaming experience with a wide variety of content at an affordable price. With this plan, subscribers gain access to an extensive library of movies, TV shows, documentaries, and original series produced by Netflix. Netflix Basic ensures uninterrupted entertainment with its diverse selection of on-demand programming."
         },
         {
-            "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hulu_Logo.svg",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Hulu_Japan_logo.svg/2560px-Hulu_Japan_logo.svg.png",
             "name": "Hulu (No Ads)",
             "price": "$14.99/mo.",
             "category": "Entertainment",
@@ -17,7 +17,7 @@
             "description": "The Hulu No Ads plan delivers a seamless and uninterrupted streaming experience to subscribers by eliminating all commercials from their favorite shows and movies. With this plan, users can enjoy an extensive library of content across various genres, including TV series, movies, documentaries, and Hulu Originals. The absence of ads ensures a more immersive viewing experience, allowing viewers to binge-watch their favorite programs without interruption. The plan also offers the flexibility to stream on multiple devices simultaneously, enabling different members of a household to enjoy their preferred shows simultaneously. Hulu No Ads is an excellent choice for individuals seeking an ad-free streaming experience with a diverse range of entertainment options."
         },
         {
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/2560px-Disney%2B_logo.svg.png",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg",
             "name": "Disney Plus (Ad-Free)",
             "price": "$10.99/mo.",
             "category": "Entertainment",
@@ -25,7 +25,7 @@
             "description": "The Disney Plus Ad-Free plan provides subscribers with a premium streaming experience, completely free from interruptions by advertisements. With this plan, users gain unlimited access to a vast collection of Disney, Pixar, Marvel, Star Wars, and National Geographic content. From beloved classics to new releases, the platform offers an extensive range of movies, series, and exclusive Disney Plus Originals. Subscribers can enjoy high-definition (HD) and select titles in ultra-high-definition (UHD) with up to four simultaneous streams, making it ideal for families or households with multiple viewers. The Disney Plus Ad-Free plan ensures an immersive and uninterrupted entertainment experience, showcasing the magic of Disney storytelling without any interruptions."
         },
         {
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Amazon_Prime_Logo.svg/2560px-Amazon_Prime_Logo.svg.png",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/Amazon_Prime_logo_%282022%29.svg",
             "name": "Amazon Prime",
             "price": "$14.99/mo.",
             "category": "Shopping",
@@ -33,7 +33,7 @@
             "description": "The Amazon Prime plan offers a comprehensive package of benefits, combining streaming entertainment, shopping perks, and more. Subscribers gain access to a vast library of movies, TV shows, and Amazon Originals through Prime Video. Additionally, they enjoy exclusive discounts, free two-day shipping on eligible Amazon items, access to Prime Music and Prime Reading, and early access to lightning deals during Amazon's annual Prime Day event. With the Amazon Prime plan, users can stream content on multiple devices simultaneously, with the option to download titles for offline viewing. It's a versatile subscription that caters to entertainment enthusiasts, avid shoppers, and those seeking additional perks beyond streaming."
         },
         {
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Apple_TV_Plus_Logo.svg/2560px-Apple_TV_Plus_Logo.svg.png",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Apple_TV%2B_logo.png",
             "name": "Apple TV Plus",
             "price": "$6.99/mo.",
             "category": "Entertainment",
@@ -57,7 +57,7 @@
             "description": "The Mathematica Home/Personal Use plan offers a powerful and versatile software solution for individuals to explore and solve complex mathematical problems. With this plan, users gain access to Mathematica, a comprehensive computational platform that combines symbolic and numeric computation, visualization, and programming capabilities. The desktop version of Mathematica provides a robust environment for mathematical modeling, data analysis, algorithm development, and interactive exploration. Subscribers can leverage a vast collection of built-in functions and libraries, making it suitable for a wide range of disciplines, including mathematics, physics, engineering, and finance. The Mathematica Home/Personal Use plan empowers enthusiasts, hobbyists, and students to deepen their understanding of mathematical concepts and unleash their creative problem-solving potential."
         },
         {
-            "image": "https://corporate.walmart.com/_download?id=00000174-4657-def6-ab7f-e657c9910000",
+            "image": "https://static.wikia.nocookie.net/logopedia/images/3/37/Walmart%2B_Icon.svg",
             "name": "Walmart Plus",
             "price": "$12.95/mo.",
             "category": "Shopping",

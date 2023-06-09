@@ -3,8 +3,20 @@
     {
       "name": "John Doe",
       "email": "doe@gmail.com",
-      "phone": "111-111-1111",
-      "comment": "I just wanted to say your website it great!"
+      "feedback": "I just wanted to say your website it great!",
+      "phone": "111-111-1111"
+    },
+    {
+      "name": "Eric Han",
+      "email": "eyhan@caltech.edu",
+      "feedback": "this sucks >: /",
+      "phone": ""
+    },
+    {
+      "name": "Eric Han",
+      "email": "eyhan@caltech.edu",
+      "feedback": "u suck >: /",
+      "phone": "5624189620"
     }
   ]
 }

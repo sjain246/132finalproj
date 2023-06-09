@@ -18,6 +18,13 @@ const CLIENT_ERR_CODE = 400;
 
 app.use(express.static("public"));
 
+/**
+ * Returns a JSON list of dictionaries from the all_prods.json file in the product_info folder
+ * containing the stored product information (image url, product name, monthly price,
+ * category, product id, and product description) for all products.
+ * Example: "[{"image" : "...", "name" : "...","price" : "...","category" : "...","id" : "...","description" : "..."}]"
+ * Responds with a 500 error if an error occurred in  in reading the all_prods.json file.
+ */
 app.get("/products", async (req, res, next) => {
     try {
         let prods = await fs.readFile("product_info/all_prods.json");
@@ -30,6 +37,14 @@ app.get("/products", async (req, res, next) => {
     }
 });
 
+/**
+ * Returns a JSON dictionary with an entry containing a list dictionaries for 
+ * all products from the all_prods.json file that match the given filtering category, 
+ * containing the stored data for each.
+ * Example: "{"products" : [{"image" : "...",...}, {"image" : "...",...}, {"image" : "...",...}]}"
+ * Responds with a 400 error if the provided category for filtering is not found.
+ * Responds with a 500 error if an error occurred in reading the all_prods.json file.
+ */
 app.get("/filter/:category", async (req, res, next) => {
     let cat = req.params.category.toLowerCase();
     try {
@@ -56,6 +71,14 @@ app.get("/filter/:category", async (req, res, next) => {
     }
 });
 
+/**
+ * Returns a JSON dictionary from the all_prods.json file in the product_info folder
+ * containing the stored product information for a single product, given its 
+ * product id.
+ * Example: "{"image" : "...", "name" : "...","price" : "...","category" : "...","id" : "...","description" : "..."}"
+ * Responds with a 400 error if the product id cannot be found in all_prods.json
+ * Responds with a 500 error if an error occurred in reading the all_prods.json file.
+ */
 app.get("/single/:id", async (req, res, next) => {
     let prodId = req.params.id.toLowerCase();
     try {
@@ -79,6 +102,13 @@ app.get("/single/:id", async (req, res, next) => {
     }
 });
 
+/**
+ * Returns a JSON dictionary containing a list of dictionaries for 
+ * all frequently asked questions with
+ * an entry for the question and an entry for the answer.
+ * Example: "{"faqs": [{"Question": "...", "Answer": "..."}, {"Question": "...", "Answer": "..."}]}"
+ * Responds with a 500 error if an error occurred in reading the faqs.json file.
+ */
 app.get("/faqs", async (req, res, next) => {
     try {
         let faqs = await fs.readFile("product_info/faqs.json");
@@ -91,6 +121,13 @@ app.get("/faqs", async (req, res, next) => {
     }
 });
 
+/**
+ * Returns a JSON dictionary containing a list of dictionaries 
+ * for all promotions from the 
+ * promos.json file in the product_info folder.
+ * Example: "{"promos": [{"start date": "...","end date": "...","sale description": "..."}]}"
+ * Responds with a 500 error if an error occurred in reading the promos.json file.
+ */
 app.get("/promos", async (req, res, next) => {
     try {
         let promos = await fs.readFile("product_info/promos.json");
@@ -103,6 +140,16 @@ app.get("/promos", async (req, res, next) => {
     }
 });
 
+/**
+ * Accepts data via a POST request from the contact form. The request must contain
+ * the name, email, and feedback parameters, with an optional phone parameter. If
+ * parameters pass, the data is stored in a dictionary and added to the cust_serv.json
+ * file in the product_info folder. Returns a plain text success or failure message.
+ * Example: "Request to add Eric's feedback successfully received!"
+ * Responds with a 400 error if any of the name, email, or feedback parameters are mising
+ * Responds with a 500 error if the cust_serv.json file cannot be read from
+ * Responds with a 500 error if the cust_serv.json file cannot be written to
+ */
 // NOTE: Used the code from lecture 18 slide 41 as a template for a POST endpoint
 app.post("/info", async (req, res, next) => {
     res.type("text");
