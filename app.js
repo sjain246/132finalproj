@@ -1,3 +1,19 @@
+/**
+ * Names: Sahil Jain and Eric Han
+ * Date 6/9/2023
+ * Description: This file (app.js) contains the javascript code neccessary to successfully implement
+ * a Node.js web service designed to help users retrieve and post information about an e-commerce
+ * store for subscription-based services. It contains numerous endpoints to help retrieve
+ * information for all products, filtered based on category, for a single product, FAQs, and 
+ * promotions. In addition, it contains a POST endpoint to allow users to submit feedback for the
+ * website via a form; this feedback is then appropriately stored in a JSON file.
+ * 
+ * NOTE: Used templates/inspiration from endpoints and error handling functions written
+ * in lecture slides 16, 17, and 18.
+ * NOTE: All information about subscription services was derived directly from the service's 
+ * website. For example, the information about the Netflix plan and its benefits were derived
+ * directly from netflix.com.
+ */
 "use strict";
 
 const express = require("express");
